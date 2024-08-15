@@ -32,4 +32,20 @@ vocabulary <http://example.com/tutorial2/vocabulary/infer_connection#> as infer_
 		mission:joins2(j1, i2) & 
 		mission:isPresentedBy(i2, c2) -> connectsTo(c1, c2)
 	]
+
+	concept ElectricSource < mission:Component
+//	concept ElectricComponent < mission:Component[
+//		restricts mission:presents to exactly 1 mission:Interface
+//		restricts all connectsTo to ElectricSource
+//	]
+
+	concept ElectricalInterface < mission:Interface
+
+	concept ElectricComponent < [
+		restricts some connectsTo to ElectricSource
+	] = mission:Component[
+		restricts some mission:presents to ElectricalInterface
+	] 
+	
+
 }

@@ -4,6 +4,8 @@ description <http://example.com/tutorial2/description/components#> as components
 
 	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
 
+	uses <http://example.com/tutorial2/vocabulary/infer_connection#> as infer_connection
+
 	instance lander-ground-data-system : mission:Component [
 		base:hasCanonicalName "Lander Ground Data System"
 		base:hasIdentifier "C.07"
@@ -92,4 +94,22 @@ description <http://example.com/tutorial2/description/components#> as components
 		base:hasCanonicalName "Orbiter Thermal Subsystem"
 		base:hasIdentifier "C.02.03"
 	]
+
+	instance power-control-unit : infer_connection:ElectricSource
+
+	instance star-tracker : infer_connection:ElectricComponent [
+
+	]
+	
+	instance star-tracker.if01 : infer_connection:ElectricalInterface [
+		base:hasCanonicalName "STT-IF-01"
+		base:hasIdentifier "STT.IF.01"
+	]
+
+	relation instance star-tracker.presents.if01 : mission:Presents [
+		from star-tracker
+		to star-tracker.if01
+	]
+
+
 }
