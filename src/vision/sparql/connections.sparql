@@ -1,0 +1,39 @@
+## This Query also works!
+
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX infer_connection:     <http://example.com/tutorial2/vocabulary/infer_connection#>
+
+SELECT DISTINCT ?c1_name ?c2_name
+WHERE {
+	?c1 a mission:Component ;
+		base:hasCanonicalName ?c1_name ;
+		infer_connection:connectsTo [
+			base:hasCanonicalName ?c2_name
+		]
+}
+ORDER BY ?c1_name ?c2_name
+
+## This Query also works!
+
+# PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+# PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+# PREFIX infer_connection:     <http://example.com/tutorial2/vocabulary/infer_connection#>
+
+# SELECT DISTINCT*
+# WHERE {
+# 	?j a mission:Junction ;
+# 		base:hasCanonicalName ?j_name ;
+#   		mission:joins1 [
+#   			mission:isPresentedBy [
+#         			base:hasCanonicalName ?c1_name ;
+#     		];
+# 		];
+#   		mission:joins2 [
+#   			mission:isPresentedBy [
+#         			base:hasCanonicalName ?c2_name ;
+#     		];
+#       ]
+#   #  		mission:joins2 ?i2;
+# }
+# ORDER BY ?c1_name ?c2_name

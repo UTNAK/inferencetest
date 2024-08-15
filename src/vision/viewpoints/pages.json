@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Home",
+    "path": "/",
+    "type": "home"
+  },
+  {
+    "title": "Kepler16b",
+    "type": "group",
+    "iconUrl": "https://nasa-jpl.github.io/stellar/icons/satellite.svg",
+    "children": [
+      {
+        "title": "decompositions-autogen",
+        "type": "diagram",
+        "path": "decompositions-autogen"
+      },
+      {
+        "title": "IBD",
+        "type": "diagram",
+        "path": "ibd"
+      },
+      {
+        "title": "Auto Test Diagram",
+        "type": "diagram",
+        "path": "auto-decomposition"
+      },
+      {
+        "title": "Auto State Effect Diagram",
+        "type": "diagram",
+        "path": "auto-state-effect-diagram"
+      },
+      {
+        "title": "Auto State Effect Diagram 2",
+        "type": "diagram",
+        "path": "auto-state-effect-diagram-2"
+      }
+    ]
+  },
+  {
+    "title": "Simulation",
+    "type": "group",
+    "iconUrl": "https://nasa-jpl.github.io/stellar/icons/satellite.svg",
+    "children": [
+      {
+        "title": "Parameter Table",
+        "type": "table",
+        "path": "parametertable"
+      }
+    ]
+  },
+  {
+    "title": "Requirements",
+    "type": "group",
+    "iconUrl": "https://nasa-jpl.github.io/stellar/icons/checklist_on_page.svg",
+    "children": [
+      {
+        "title": "Requirements",
+        "type": "tree",
+        "path": "requirements"
+      }
+    ]
+  },
+  {
+    "title": "Tree",
+    "type": "group",
+    "iconUrl": "https://nasa-jpl.github.io/stellar/icons/checklist_on_page.svg",
+    "children": [
+      {
+        "title": "Objectives",
+        "type": "table",
+        "path": "objectives"
+      },
+      {
+        "title": "Missions",
+        "type": "tree",
+        "path": "missions"
+      },
+      {
+        "title": "Connections",
+        "type": "table",
+        "path": "connections"
+      }
+    ]
+  },
+  {
+    "title": "Table",
+    "type": "group",
+    "iconUrl": "https://nasa-jpl.github.io/stellar/icons/satellite.svg",
+    "children": [
+      {
+        "title": "Mass Equipment List(MEL)",
+        "type": "table",
+        "path": "mel"
+      },
+      {
+        "title": "Component Tree",
+        "type": "tree",
+        "path": "component-tree"
+      }      
+    ]
+  }
+]

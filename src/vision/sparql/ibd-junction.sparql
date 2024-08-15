@@ -1,0 +1,24 @@
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX kpinterface: <http://example.com/tutorial2/vocabulary/kpinterface#>
+PREFIX oml:     	<http://opencaesar.io/oml#>
+
+PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT*# ?j1_localname ?from ?to
+WHERE {
+
+	?j1 a kpinterface:Junction ;
+ 			oml:hasSource ?j1_from;
+  		   oml:hasTarget ?j1_to	.
+  
+    ?j1_from mission:isPresentedBy ?fromIri.
+    ?j1_to mission:isPresentedBy ?toIri.
+
+  
+ BIND(STRAFTER(STR(?j1), "#") AS ?j1_localname) .
+  BIND(STRAFTER(STR(?fromIri), "#") AS ?from) .
+  BIND(STRAFTER(STR(?toIri), "#") AS ?to) .
+
+}
+ORDER BY ?j1

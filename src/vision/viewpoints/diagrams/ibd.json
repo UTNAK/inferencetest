@@ -1,0 +1,40 @@
+{
+    "ibd": {
+        "name": "IBD",
+        "queries": {
+          "subsystem": "mel_system.sparql",
+          "assembly": "mel.sparql",
+          "edge": "ibd-junction.sparql"
+        },
+        "rowMapping": {
+          "id": "subsystem",
+          "name": "Subsystem",
+          "labelFormat": "{subsystem}",
+          "nodeColor": "Aqua",
+          "nodeTextColor": "black",
+          "nodeType": "system",
+          "edgeMatchKey": "subsystem",
+          "subRowMappings": [
+            {
+              "id": "assembly",
+              "name": "Assembly",
+              "labelFormat": "{assembly}",
+              "nodeColor": "Navy",
+              "nodeTextColor": "white",
+              "nodeType": "assembly"
+            }
+          ]
+        },
+        "edges": [
+          {
+            "id": "edge",
+            "name": "Edge",
+            "animated": true,
+            "labelFormat": "{j1_localname}",
+            "legendItems": "junctions",
+            "sourceKey": "from",
+            "targetKey": "to"
+          }
+        ]
+      }
+}
