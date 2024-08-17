@@ -41,11 +41,24 @@ vocabulary <http://example.com/tutorial2/vocabulary/infer_connection#> as infer_
 
 	concept ElectricalInterface < mission:Interface
 
-	concept ElectricComponent < [
-		restricts some connectsTo to ElectricSource
-	] = mission:Component[
+//	@rdfs:comment "Every component that has electric interface must be connected to the power source(eg. Power Control Unit)"
+//	concept ElectricComponent < [
+//		restricts some connectsTo to ElectricSource
+//	] = mission:Component[
+//		restricts some mission:presents to ElectricalInterface
+//	] 
+
+//	@rdfs:comment "If component has electric interface, it is ElectricComponent"	
+	concept MustElectricComponent < mission:Component[
 		restricts some mission:presents to ElectricalInterface
 	] 
-	
+
+	concept IsElectricComponent = mission:Component[
+		restricts some mission:presents to ElectricalInterface
+	] 
+	// concept ElectricComponent < [
+	// 	restricts some connectsTo to ElectricSource
+	// 	restricts some mission:presents to ElectricalInterface
+	// ] 
 
 }

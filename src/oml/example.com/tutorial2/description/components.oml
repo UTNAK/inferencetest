@@ -95,10 +95,18 @@ description <http://example.com/tutorial2/description/components#> as components
 		base:hasIdentifier "C.02.03"
 	]
 
-	instance power-control-unit : infer_connection:ElectricSource
+	// infer_connection:ElectricSource
+	instance power-control-unit : infer_connection:ElectricSource [
+		base:hasCanonicalName "Power Control Unit"
+		base:hasIdentifier "C.02.01.01"
+	] 
+//	ref instance power-control-unit : infer_connection:ElectricSource
 
-	instance star-tracker : infer_connection:ElectricComponent [
 
+	instance star-tracker : mission:Component[
+		base:hasCanonicalName "Star Tracker"
+		base:hasIdentifier "C.02.06.01"
+		mission:presents star-tracker.if01
 	]
 	
 	instance star-tracker.if01 : infer_connection:ElectricalInterface [
@@ -106,10 +114,22 @@ description <http://example.com/tutorial2/description/components#> as components
 		base:hasIdentifier "STT.IF.01"
 	]
 
-	relation instance star-tracker.presents.if01 : mission:Presents [
-		from star-tracker
-		to star-tracker.if01
-	]
+	// relation instance star-tracker.presents.if01 : mission:Presents [
+	// 	from star-tracker
+	// 	to star-tracker.if01
+	// ]
 
+	instance power-control-unit.if01 : infer_connection:ElectricalInterface [
+		base:hasCanonicalName "PCU-IF-01"
+		base:hasIdentifier "PCU.IF.01"
+	]	
+	relation instance power-control-unit.presents.if01 : mission:Presents [
+		from power-control-unit
+		to power-control-unit.if01
+	]
+	instance j01-pcu-stt : mission:Junction [
+		mission:joins1 power-control-unit.if01 
+		mission:joins2 star-tracker.if01
+	]
 
 }
